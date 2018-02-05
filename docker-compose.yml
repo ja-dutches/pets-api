@@ -5,9 +5,9 @@ services:
     build: .
     command: >
       gunicorn -b 0.0.0.0:8000
-      --access-logfile - 
-      --reload
-      "pets_api.app:create_app()"
+        --access-logfile - 
+        --reload
+        "pets_api.app:create_app()"
     environment:
       PYTHONUNBUFFERED: 'true'
     volumes:

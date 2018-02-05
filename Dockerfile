@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     mongodb
 
-ENV INSTALL_PATH /pets-api
+ENV INSTALL_PATH /pets_api
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
@@ -24,4 +24,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD gunicorn -b 0.0.0.0:8000 --access-logfile - "pets_api.app:create_app)_"
+CMD gunicorn -b 0.0.0.0:8000 --access-logfile - "pets_api.app:create_app()"
