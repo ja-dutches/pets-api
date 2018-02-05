@@ -2,6 +2,7 @@ from flask import Flask
 
 from pets_api.extensions import db
 from pets_api.home.views import home_app
+from pets_api.pet.views import pet_app
 
 
 def create_app(**config_overrides):
@@ -19,6 +20,7 @@ def create_app(**config_overrides):
 
     # register blueprints
     app.register_blueprint(home_app)
+    app.register_blueprint(pet_app)
 
     # initialize extensions
     extensions(app)
