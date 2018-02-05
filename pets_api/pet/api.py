@@ -17,7 +17,7 @@ class PetApi(MethodView):
     ]
 
     def get(self, pet_id):
-        if pet_id:
+        if pet_id:     
             # return single pet object
             return jsonify({'pet': self.pets[pet_id-1]})
         else:
@@ -34,3 +34,14 @@ class PetApi(MethodView):
         }
         self.pets.append(pet)
         return jsonify({'pet': pet}), 201
+    
+    def put(self, pet_id):
+        if not request.json or not 'name' in request.json:
+            abort(400)
+        pet = self.pets[pet_id - 1]
+        pet['name'] = request.json['name']
+        return jsonify({'pet': pet}), 200
+    
+    def delete(self, pet_id):
+        del self.pets[pet_id - 1]
+        return jsonify({}), 204
