@@ -13,3 +13,4 @@ def app_required(f):
         if app_id != "jorge" or app_secret != "mySecret":
             return jsonify({}), 403
         return f(*args, **kwargs)
+    return decorated_function

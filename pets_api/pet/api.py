@@ -1,8 +1,12 @@
 from flask.views import MethodView
 from flask import jsonify, request, abort
 
+from pets_api.app.decorstors import app_required
+
 
 class PetApi(MethodView):
+
+    decorators = [app_required]
 
     pets = [
         {'id': 1, 'name': u'Mac', 'links': [

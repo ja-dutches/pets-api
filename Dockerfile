@@ -24,4 +24,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD gunicorn -b 0.0.0.0:8000 --access-logfile - "pets_api.app:create_app()"
+CMD gunicorn -b 0.0.0.0:8000 --access-logfile - "pets_api.application:create_app()"
